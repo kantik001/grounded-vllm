@@ -89,6 +89,8 @@ pip install -e ".[vllm]"
 | [grounded-llm](https://github.com/kantik001/grounded-llm) | Cited RAG + Spec |
 | [grounded-guardrails](https://github.com/kantik001/grounded-guardrails) | Verify service `:50052` |
 | [grounded-bench](https://github.com/kantik001/grounded-bench) | NVR / CP / HR / RR |
+| [mcp-gateway](https://github.com/kantik001/mcp-gateway) | MCP HTTP bridge |
+| [grounded-agent](https://github.com/kantik001/grounded-agent) | ReAct orchestrator |
 | **grounded-vllm** | Serving-path verify adapter |
 
 ## Docs
