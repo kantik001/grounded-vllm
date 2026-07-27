@@ -1,4 +1,4 @@
-# Python
+﻿# Python
 **/__pycache__/
 **/.pytest_cache/
 **/.venv/
@@ -16,3 +16,8 @@ Thumbs.db
 .env.*
 !.env.example
 .venv/
+
+# Results (keep published overhead snapshot)
+results/*
+!results/.gitkeep
+!results/overhead.json

@@ -1,0 +1,59 @@
+{
+  "benchmark": "grounded-vllm-overhead",
+  "timestamp": "2026-07-27T22:53:37.262418+00:00",
+  "hardware": {
+    "platform": "Windows-10-10.0.19045-SP0",
+    "python": "3.12.0",
+    "machine": "AMD64",
+    "processor": "AMD64 Family 23 Model 8 Stepping 2, AuthenticAMD"
+  },
+  "config": {
+    "iters": 200,
+    "warmup": 20,
+    "guardrails": "127.0.0.1:50052",
+    "note": "In-process ASGI mock upstream (no GPU/vLLM). Isolates gRPC verify + proxy orchestration overhead."
+  },
+  "suites": [
+    {
+      "name": "guardrails_verify_text",
+      "latency": {
+        "n": 200,
+        "mean_ms": 0.55,
+        "p50_ms": 0.377,
+        "p95_ms": 0.859,
+        "p99_ms": 3.337,
+        "min_ms": 0.321,
+        "max_ms": 13.919
+      }
+    },
+    {
+      "name": "proxy_no_verify",
+      "latency": {
+        "n": 200,
+        "mean_ms": 2.457,
+        "p50_ms": 2.407,
+        "p95_ms": 2.948,
+        "p99_ms": 3.194,
+        "min_ms": 2.021,
+        "max_ms": 4.452
+      }
+    },
+    {
+      "name": "proxy_with_verify",
+      "latency": {
+        "n": 200,
+        "mean_ms": 3.153,
+        "p50_ms": 3.118,
+        "p95_ms": 3.658,
+        "p99_ms": 3.879,
+        "min_ms": 2.799,
+        "max_ms": 5.232
+      }
+    }
+  ],
+  "derived": {
+    "verify_add_p50_ms": 0.711,
+    "verify_add_p99_ms": 0.685,
+    "guardrails_p99_ms": 3.337
+  }
+}

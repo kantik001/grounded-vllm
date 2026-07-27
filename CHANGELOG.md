@@ -9,3 +9,4 @@
 - Optional `vllm.logits_processors` entry point (validate `grounded_context`, no-op logits)
 - Architecture + upstream contribution notes
 - CI unit tests (no GPU)
+- Overhead bench (`scripts/bench_overhead.py`) + [OVERHEAD.md](OVERHEAD.md) — verify add ≈ **0.7 ms** p50/p99

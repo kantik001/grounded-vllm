@@ -60,6 +60,15 @@ curl http://127.0.0.1:8001/v1/chat/completions \
 
 Successful responses include `grounded_verify: {passed, violations, latency_ms}`. Failures return HTTP **422** with `grounded_verify_failed` (unless `--no-block`).
 
+## Overhead (measured)
+
+| Layer | p50 | p99 |
+|-------|----:|----:|
+| Guardrails `VerifyText` | 0.38 ms | 3.34 ms |
+| Proxy verify add (on − off) | **+0.71 ms** | **+0.69 ms** |
+
+Full table + hardware notes: [OVERHEAD.md](OVERHEAD.md). Mock upstream (no GPU); generation latency excluded.
+
 Unary check without vLLM:
 
 ```bash
