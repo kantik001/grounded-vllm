@@ -2,6 +2,15 @@
 
 Goal from career plan A2: **merged** useful upstream work + a working adapter (this repo).
 
+## Shipped
+
+| Item | Link |
+|------|------|
+| Adapter (proxy + client) | this repo |
+| Overhead table | [OVERHEAD.md](OVERHEAD.md) — verify add ≈ **0.7 ms** p50/p99 |
+| Docs PR (logits vs post-gen) | https://github.com/vllm-project/vllm/pull/50051 |
+| RFC engagement | comment on https://github.com/vllm-project/vllm/issues/43999 |
+
 ## What we need from vLLM
 
 Decoded-text verify at end-of-generation (and optionally mid-stream) without fragile ASGI body rewriting.
@@ -12,12 +21,12 @@ Relevant upstream discussion:
 
 Until that lands, **grounded-vllm** uses an OpenAI-compatible proxy — production-honest and portable across vLLM versions.
 
-## Contribution sequence (do in order)
+## Contribution sequence
 
-1. **Engage the RFC** with a concrete consumer: link this adapter + guardrails `VerifyText` latency numbers.
-2. **Docs PR** (low risk): document recommended pattern for external verify proxies / `extra_body` conventions — only if maintainers want it in-tree.
-3. **Small bugfix** found while integrating (streaming edge cases, middleware notes).
-4. **Hook implementation PR** only after RFC direction is clear — do not fork a parallel plugin API.
+1. ✅ Engage the RFC with a concrete consumer + latency numbers
+2. ✅ Docs PR: post-generation checks vs logits processors ([#50051](https://github.com/vllm-project/vllm/pull/50051))
+3. ⏳ Land / iterate on maintainer review for #50051
+4. Hook implementation PR only after RFC direction is clear — do not fork a parallel plugin API
 
 ## Local logits entry point
 
